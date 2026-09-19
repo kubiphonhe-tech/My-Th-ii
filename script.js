@@ -25,7 +25,8 @@ function prevPage() {
 }
 
 function blowCandle() {
-    document.getElementById("wish-text").innerText = "🎉 Chúc mừng! Nến đã thổi bay! 🎂✨";
+    document.getElementById("wish-textinnerText", "🎉 Chúc mừng! Nến đã thổi bay, điều ước sẽ thành hiện thực! 🎂✨");
+    document.getElementById("wish-text").innerText = "🎉 Chúc mừng! Nến đã thổi bay, điều ước sẽ thành hiện thực! 🎂✨";
 }
 
 function openGift() {
