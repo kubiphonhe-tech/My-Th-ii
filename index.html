@@ -8,37 +8,39 @@
 </head>
 <body>
 
-    <!-- Trang 1 -->
-    <section class="page active">
-        <div class="card">
-            <h1>🎂 Chúc Mừng Sinh Nhật! 🥳</h1>
-            <p>Hôm nay là một ngày đặc biệt...</p>
-            <div class="cake" onclick="blowCandle()">🕯️ Bấm vào đây để thổi nến!</div>
-            <p id="wish-text"></p>
-        </div>
-    </section>
+    <div class="container">
+        <!-- Trang 1 -->
+        <section class="page active">
+            <div class="card">
+                <h1>🎂 Chúc Mừng Sinh Nhật! 🥳</h1>
+                <p>Hôm nay là một ngày đặc biệt của một người rất...</p>
+                <div class="cake" onclick="blowCandle()">🕯️ Bấm vào đây để thổi nến!</div>
+                <p id="wish-text" class="highlight-text"></p>
+            </div>
+        </section>
 
-    <!-- Trang 2 -->
-    <section class="page">
-        <div class="card">
-            <h2>💌 Hội bạn nhắn gửi</h2>
-            <p>"Chúc tuổi mới thật rực rỡ nhé!"</p>
-        </div>
-    </section>
+        <!-- Trang 2 -->
+        <section class="page">
+            <div class="card">
+                <h2>💌 Hội bạn nhắn gửi</h2>
+                <p>"Chúc mày tuổi mới bớt ngốc lại, sớm thoát ế và luôn vui vẻ nha bạn tôi!"</p>
+            </div>
+        </section>
 
-    <!-- Trang 3 -->
-    <section class="page">
-        <div class="card">
-            <h2>🎁 Món quà bất ngờ</h2>
-            <div class="gift-box" onclick="openGift()">📦 Bấm vào hộp quà đi!</div>
-            <p id="gift-content" style="display:none; color: #ff4757; font-weight: bold;">Một chầu trà sữa đang chờ bạn! 🧋</p>
-        </div>
-    </section>
+        <!-- Trang 3 -->
+        <section class="page">
+            <div class="card">
+                <h2>🎁 Món quà bất ngờ</h2>
+                <div class="gift-box" onclick="openGift()">📦 Bấm vào hộp quà đi!</div>
+                <p id="gift-content" class="gift-hidden">Tèn tén ten: Một lời hứa bao trà sữa trân châu! 🧋</p>
+            </div>
+        </section>
 
-    <!-- Nút điều hướng -->
-    <div class="nav-buttons">
-        <button onclick="prevPage()">⬅️ Quay lại</button>
-        <button onclick="nextPage()">Tiếp theo ➡️</button>
+        <!-- Nút điều hướng -->
+        <div class="nav-buttons">
+            <button onclick="prevPage()">⬅️ Quay lại</button>
+            <button onclick="nextPage()">Tiếp theo ➡️</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
