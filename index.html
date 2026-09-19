@@ -3,46 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng Sinh Nhật! 🎉</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gửi cậu...</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6; /* Màu nền, có thể đổi mã màu khác */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Ngăn thanh cuộn khi nút chạy ra ngoài mép */
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            padding: 0 20px;
+        }
+        .btn-group {
+            position: relative;
+            width: 300px;
+            height: 100px;
+        }
+        button {
+            border: none;
+            outline: none;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        #btn-yes {
+            background-color: #4CAF50;
+            position: absolute;
+            left: 0;
+        }
+        #btn-no {
+            background-color: #f44336;
+            position: absolute;
+            right: 0;
+            transition: left 0.15s ease, top 0.15s ease; /* Tạo hiệu ứng lướt mượt mà khi chạy né */
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Trang 1 -->
-        <section class="page active">
-            <div class="card">
-                <h1>🎂 Chúc Mừng Sinh Nhật! 🥳</h1>
-                <p>Hôm nay là một ngày đặc biệt của một người rất...</p>
-                <div class="cake" onclick="blowCandle()">🕯️ Bấm vào đây để thổi nến!</div>
-                <p id="wish-text" class="highlight-text"></p>
-            </div>
-        </section>
-
-        <!-- Trang 2 -->
-        <section class="page">
-            <div class="card">
-                <h2>💌 Hội bạn nhắn gửi</h2>
-                <p>"Chúc mày tuổi mới bớt ngốc lại, sớm thoát ế và luôn vui vẻ nha bạn tôi!"</p>
-            </div>
-        </section>
-
-        <!-- Trang 3 -->
-        <section class="page">
-            <div class="card">
-                <h2>🎁 Món quà bất ngờ</h2>
-                <div class="gift-box" onclick="openGift()">📦 Bấm vào hộp quà đi!</div>
-                <p id="gift-content" class="gift-hidden">Tèn tén ten: Một lời hứa bao trà sữa trân châu! 🧋</p>
-            </div>
-        </section>
-
-        <!-- Nút điều hướng -->
-        <div class="nav-buttons">
-            <button onclick="prevPage()">⬅️ Quay lại</button>
-            <button onclick="nextPage()">Tiếp theo ➡️</button>
+        <!-- BẠN THAY ĐỔI CÂU HỎI Ở DÒNG DƯỚI NÀY NHÉ -->
+        <h1 id="title">Cậu có thích tớ không? 💖</h1>
+        
+        <div class="btn-group">
+            <button id="btn-yes">Có nhaa 🥰</button>
+            <button id="btn-no">Không 😡</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnYes = document.getElementById('btn-yes');
+
+        // Hàm xử lý nút "Không" né chuột
+        function moveButton() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const btnWidth = btnNo.offsetWidth;
+            const btnHeight = btnNo.offsetHeight;
+
+            // Tính toán vị trí ngẫu nhiên không bị lọt ra ngoài màn hình
+            const randomX = Math.floor(Math.random() * (windowWidth - btnWidth - 20));
+            const randomY = Math.floor(Math.random() * (windowHeight - btnHeight - 20));
+
+            // Đổi vị trí sang fixed để nút bay tự do trên toàn màn hình
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = randomX + 'px';
+            btnNo.style.top = randomY + 'px';
+        }
+
+        // Bắt sự kiện khi rê chuột vào hoặc chạm tay vào (hỗ trợ cả điện thoại)
+        btnNo.addEventListener('mouseenter', moveButton);
+        btnNo.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Ngăn hành vi bấm mặc định trên mobile
+            moveButton();
+        });
+
+        // Sự kiện khi bấm được nút "Có" (Đồng ý)
+        btnYes.addEventListener('click', function() {
+            // Thay đổi câu thông báo khi bấm nút Yes
+            alert('Tớ biết ngay mà! Hehe 😘😘😘');
+            
+            // Đổi chữ trên màn hình (Tùy chọn)
+            document.getElementById('title').innerText = "Tớ cũng thế! ❤️";
+            document.querySelector('.btn-group').style.display = 'none';
+        });
+    </script>
+
 </body>
 </html>
